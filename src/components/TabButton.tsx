@@ -1,7 +1,7 @@
-function ActionButton({ text }: { text: string }) {
+function TabButton({ text }: { text: string }) {
     return (
         <button 
-            className="inline-block bg-white border border-neutral-100 
+            className="inline-block bg-white border border-neutral-200 
             shadow-sm px-3 py-1 rounded-2xl cursor-pointer
             text-neutral-800 font-normal"
         >
@@ -10,4 +10,4 @@ function ActionButton({ text }: { text: string }) {
     )
 }
 
-export default ActionButton;
+export default TabButton;

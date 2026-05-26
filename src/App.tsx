@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <main className="bg-main-light min-h-dvh">
+      <main className="bg-main-light min-h-dvh pb-12">
         <Header  />
 
         <section className="mt-24">
@@ -14,7 +14,15 @@ function App() {
             <div>
               <Navigation  />
             </div>
-            <div>
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              <ExtensionCard  />
+              <ExtensionCard  />
+              <ExtensionCard  />
+              <ExtensionCard  />
+              <ExtensionCard  />
+              <ExtensionCard  />
+              <ExtensionCard  />
+              <ExtensionCard  />
               <ExtensionCard  />
             </div>
           </div>

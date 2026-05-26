@@ -1,4 +1,4 @@
-import ActionButton from "./ActionButton";
+import TabButton from "./TabButton";
 
 
 function Navigation() {
@@ -9,9 +9,9 @@ function Navigation() {
                     Extensions List
                 </h1>
                 <ul className="flex items-center gap-4">
-                    <ActionButton text="All"  />
-                    <ActionButton text="Active"  />
-                    <ActionButton text="Inactive"  />
+                    <TabButton text="All"  />
+                    <TabButton text="Active"  />
+                    <TabButton text="Inactive"  />
                 </ul>
             </div>
         </nav>
