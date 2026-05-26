@@ -1,11 +1,25 @@
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
+import ExtensionCard from "./components/ExtensionCard";
 
 function App() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-blue-600">Hello world !</h1>
+      <main className="bg-main-light min-h-dvh">
+        <Header  />
+
+        <div className="container">
+          <div>
+            <Navigation  />
+          </div>
+          <div>
+            <ExtensionCard  />
+          </div>
+        </div>
+      </main>
     </>
   )
 }
 
-export default App
+export default App;
