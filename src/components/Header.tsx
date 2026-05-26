@@ -5,8 +5,8 @@ import appLogo from "../assets/images/logo.svg"
 export default function Header() {
     
     return (
-        <header>
-            <div className="container bg-white">
+        <header className="sticky top-6">
+            <div className="container bg-white p-3 rounded-2xl shadow-2xs">
                 <div className="flex items-center justify-between">
                     <picture>
                         <img src={appLogo} alt="App Principal Logo" />

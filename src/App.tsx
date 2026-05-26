@@ -9,14 +9,16 @@ function App() {
       <main className="bg-main-light min-h-dvh">
         <Header  />
 
-        <div className="container">
-          <div>
-            <Navigation  />
+        <section className="mt-24">
+          <div className="container">
+            <div>
+              <Navigation  />
+            </div>
+            <div>
+              <ExtensionCard  />
+            </div>
           </div>
-          <div>
-            <ExtensionCard  />
-          </div>
-        </div>
+        </section>
       </main>
     </>
   )
