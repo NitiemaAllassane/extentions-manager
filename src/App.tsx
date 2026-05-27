@@ -1,8 +1,10 @@
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import ExtensionCard from "./components/ExtensionCard";
+import data from '../data.json';
 
 function App() {
+  const allExtensions = data.slice();
 
   return (
     <>
@@ -15,15 +17,14 @@ function App() {
               <Navigation  />
             </div>
             <div className="mt-8 grid grid-cols-3 gap-3">
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
-              <ExtensionCard  />
+              {allExtensions.map(extension => (
+                <ExtensionCard
+                  logo={extension.logo}
+                  name={extension.name}
+                  description={extension.description}
+                  isActive={extension.isActive}
+                />
+              ))}
             </div>
           </div>
         </section>
