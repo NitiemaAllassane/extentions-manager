@@ -30,16 +30,16 @@ function App() {
         </section>
       </main>
 
-      <footer className="py-4">
+      <footer className="py-4 dark:text-white">
         <div className="container">
           <p className="text-sm text-center">
-            Challenge by 
+            Challenge by {' '}
             <a 
               href="https://www.frontendmentor.io?ref=challenge" 
               target="_blank" 
               className="underline text-red-400"
             >Frontend Mentor</a>. 
-            Coded by 
+            Coded by {' '}
             <a 
               href="https://nitiema-allassane.vercel.app/about" 
               target="_blank" 

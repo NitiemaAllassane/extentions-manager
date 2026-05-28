@@ -5,7 +5,7 @@ function Navigation() {
     return (
         <nav>
             <div className="container flex flex-col md:flex-row items-center justify-between">
-                <h1 className="font-bold mb-6 text-3xl text-neutral-800">
+                <h1 className="font-bold mb-6 text-3xl text-neutral-800 dark:text-white">
                     Extensions List
                 </h1>
                 <ul className="flex items-center gap-4">
