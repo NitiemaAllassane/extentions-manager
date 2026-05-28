@@ -8,10 +8,10 @@ function App() {
 
   return (
     <>
-      <main className="bg-main-light min-h-dvh pb-12">
+      <main className="min-h-dvh pb-12">
         <Header  />
 
-        <section className="mt-24">
+        <section className="mt-20 md:mt-24">
           <div className="container">
             <div>
               <Navigation  />
@@ -29,6 +29,25 @@ function App() {
           </div>
         </section>
       </main>
+
+      <footer className="py-4">
+        <div className="container">
+          <p className="text-sm text-center">
+            Challenge by 
+            <a 
+              href="https://www.frontendmentor.io?ref=challenge" 
+              target="_blank" 
+              className="underline text-red-400"
+            >Frontend Mentor</a>. 
+            Coded by 
+            <a 
+              href="https://nitiema-allassane.vercel.app/about" 
+              target="_blank" 
+              className="underline text-red-400"
+            >Nitiema Allassane</a>.
+          </p>
+        </div>
+      </footer>
     </>
   )
 }
