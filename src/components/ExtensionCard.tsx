@@ -11,8 +11,8 @@ interface ExtensionCardProps {
 function ToggleButton({ isActive }: { isActive: boolean }) {
     return (
         <button className={clsx(
-            'inline-block w-12 h-6 bg-neutral-300 dark:bg-neutral-500 rounded-2xl relative cursor-pointer',
-            isActive ? 'bg-red-700 dark:bg-red-400 hover:bg-red-400' : 'hover:bg-neutral-400'
+            'inline-block w-12 h-6 bg-neutral-300 dark:bg-neutral-600 rounded-2xl relative cursor-pointer',
+            isActive ? 'bg-red-700 hover:bg-red-400 dark:bg-red-400 dark:hover:bg-red-500' : 'hover:bg-neutral-400 dark:hover:bg-neutral-500'
         )}>
             <span 
                 className={clsx(
@@ -22,15 +22,15 @@ function ToggleButton({ isActive }: { isActive: boolean }) {
             >
             </span>
         </button>
-    )
+    );
 }
 
 function RemoveButton({ text }: { text: string }) {
     return (
         <button 
             className="inline-block bg-white border border-neutral-300 
-            px-3 py-1 rounded-2xl cursor-pointer dark:bg-neutral-700 dark:text-white
-            text-neutral-800 font-normal hover:bg-red-700 hover:text-white hover:border-transparent"
+            px-3 py-1 rounded-2xl cursor-pointer text-neutral-800 font-normal hover:bg-red-700 dark:hover:bg-red-500 
+            hover:text-white hover:border-transparent dark:hover:text-neutral-800 dark:bg-neutral-700 dark:text-white"
         >
             {text}
         </button>

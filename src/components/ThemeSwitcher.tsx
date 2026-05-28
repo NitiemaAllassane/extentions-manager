@@ -3,7 +3,10 @@ import sunIcon from '../assets/images/icon-sun.svg';
 
 function ThemeSwitcher() {
     return (
-        <button className='bg-neutral-100 p-2 rounded-md cursor-pointer hover:bg-neutral-300 dark:bg-neutral-700'>
+        <button 
+            className='bg-neutral-100 p-2 rounded-md cursor-pointer hover:bg-neutral-300 
+            dark:bg-neutral-700 dark:hover:bg-neutral-600'
+        >
             <img src={sunIcon} alt="Moon Icon" />
         </button>
     )

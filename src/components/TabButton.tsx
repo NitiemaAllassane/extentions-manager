@@ -3,7 +3,8 @@ function TabButton({ text }: { text: string }) {
         <button 
             className="inline-block bg-white border border-neutral-200 
             shadow-sm px-4 py-2 md:px-3 md:py-1 rounded-2xl cursor-pointer
-            text-neutral-800 font-normal hover:opacity-85 dark:bg-neutral-700 dark:text-white dark:border-neutral-600"
+            text-neutral-800 font-normal hover:opacity-85 dark:bg-neutral-700 
+            dark:text-white dark:border-neutral-600 dark:hover:opacity-100 dark:hover:bg-neutral-600"
         >
             {text}
         </button>
