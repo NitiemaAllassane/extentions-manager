@@ -1,7 +1,12 @@
 import TabButton from "./TabButton";
 
 
-function Navigation() {
+interface NavigationProps {
+    currentTab: string;
+    setCurrentTab: React.Dispatch<React.SetStateAction<"all" | "active" | "inactive">>;
+}
+
+function Navigation({ currentTab, setCurrentTab }: NavigationProps) {
     return (
         <nav>
             <div className="container flex flex-col md:flex-row items-center justify-between">
@@ -9,9 +14,23 @@ function Navigation() {
                     Extensions List
                 </h1>
                 <ul className="flex items-center gap-4">
-                    <TabButton text="All"  />
-                    <TabButton text="Active"  />
-                    <TabButton text="Inactive"  />
+                    <TabButton 
+                        text="All" 
+                        currentTab={currentTab} 
+                        onButtonClick={() => setCurrentTab('all')} 
+                     />
+
+                     <TabButton 
+                        text="Active" 
+                        currentTab={currentTab} 
+                        onButtonClick={() => setCurrentTab('active')} 
+                     />
+
+                     <TabButton 
+                        text="Inactive" 
+                        currentTab={currentTab} 
+                        onButtonClick={() => setCurrentTab('inactive')} 
+                     />
                 </ul>
             </div>
         </nav>

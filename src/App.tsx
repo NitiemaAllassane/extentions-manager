@@ -2,9 +2,13 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import ExtensionCard from "./components/ExtensionCard";
 import data from '../data.json';
+import { useState } from "react";
 
 function App() {
-  const allExtensions = data.slice();
+  const [ currentTab, setCurrentTab ] = useState<'all' | 'active' | 'inactive'>('all');
+  const [ extensions, setExtensions ] = useState(data.slice());
+  const activeExtensions = extensions.filter( extension => ( extension.isActive === true));
+  const inactiveExtensions = extensions.filter( extension => ( extension.isActive === false));
 
   return (
     <>
@@ -14,18 +18,59 @@ function App() {
         <section className="mt-20 md:mt-24">
           <div className="container">
             <div>
-              <Navigation  />
+              <Navigation 
+                currentTab={currentTab}
+                setCurrentTab={setCurrentTab}
+              />
             </div>
-            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {allExtensions.map(extension => (
-                <ExtensionCard
-                  logo={extension.logo}
-                  name={extension.name}
-                  description={extension.description}
-                  isActive={extension.isActive}
-                />
-              ))}
-            </div>
+
+            {
+              currentTab === "all" ? (
+                /* All extensions */
+                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {extensions.map(extension => (
+                    <ExtensionCard
+                      key={extension.name}
+                      logo={extension.logo}
+                      name={extension.name}
+                      description={extension.description}
+                      isActive={extension.isActive}
+                    />
+                  ))}
+                </div>
+
+              ) : currentTab === "active" ? (
+
+                /* Active extensions */
+                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {activeExtensions.map(extension => (
+                    <ExtensionCard
+                      key={extension.name}
+                      logo={extension.logo}
+                      name={extension.name}
+                      description={extension.description}
+                      isActive={extension.isActive}
+                    />
+                  ))}
+                </div>
+
+              ) : (
+
+                /* Inactive extensions */
+                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {inactiveExtensions.map(extension => (
+                    <ExtensionCard
+                      key={extension.name}
+                      logo={extension.logo}
+                      name={extension.name}
+                      description={extension.description}
+                      isActive={extension.isActive}
+                    />
+                  ))}
+                </div>
+              )
+          }
+            
           </div>
         </section>
       </main>
