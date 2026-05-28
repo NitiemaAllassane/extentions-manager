@@ -1,10 +1,6 @@
 import clsx from "clsx";
+import type { TabButtonProps } from "../types/types";
 
-interface TabButtonProps { 
-    text: string, 
-    currentTab: string, 
-    onButtonClick: () => void 
-}
 
 function TabButton({ text, currentTab, onButtonClick }: TabButtonProps) {
     return (

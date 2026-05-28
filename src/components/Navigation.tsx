@@ -1,10 +1,7 @@
 import TabButton from "./TabButton";
+import type { NavigationProps } from "../types/types";
 
 
-interface NavigationProps {
-    currentTab: string;
-    setCurrentTab: React.Dispatch<React.SetStateAction<"all" | "active" | "inactive">>;
-}
 
 function Navigation({ currentTab, setCurrentTab }: NavigationProps) {
     return (
