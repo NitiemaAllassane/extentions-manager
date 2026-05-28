@@ -48,6 +48,10 @@
 .container {
     max-width: 1080px;
     margin: 0 auto;
+
+    @media screen and (max-width: 1110px) {
+        max-width: 90%;
+    }
 }
 
 body {
