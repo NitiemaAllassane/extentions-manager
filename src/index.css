@@ -40,6 +40,10 @@
 }
 
 
+*:focus {
+    outline: 2px solid var(--color-red-400);
+    outline-offset: 2px;
+}
 
 .container {
     max-width: 1080px;
