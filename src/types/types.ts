@@ -3,6 +3,8 @@ export interface ExtensionCardProps {
     name: string;
     description: string;
     isActive: boolean;
+    toggleStatus: () => void;
+    removeExtension: () => void;
 }
 
 export interface NavigationProps {

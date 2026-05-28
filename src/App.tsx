@@ -3,12 +3,31 @@ import Navigation from "./components/Navigation";
 import ExtensionCard from "./components/ExtensionCard";
 import data from '../data.json';
 import { useState } from "react";
+import EmptyState from "./components/EmptyState";
 
 function App() {
   const [ currentTab, setCurrentTab ] = useState<'all' | 'active' | 'inactive'>('all');
   const [ extensions, setExtensions ] = useState(data.slice());
   const activeExtensions = extensions.filter( extension => ( extension.isActive === true));
   const inactiveExtensions = extensions.filter( extension => ( extension.isActive === false));
+
+
+
+  const toggleExtensionStatus = (name: string) => {
+    const updatedExtensions = extensions.map(extension =>
+      extension.name === name
+        ? { ...extension, isActive: !extension.isActive }
+        : extension
+    );
+
+    setExtensions(updatedExtensions);
+  }
+
+
+  const removeExtension = (name: string) => {
+    const removedExtensions = extensions.filter(extension => extension.name !== name);
+    setExtensions(removedExtensions);
+  }
 
   return (
     <>
@@ -26,47 +45,80 @@ function App() {
 
             {
               currentTab === "all" ? (
-                /* All extensions */
-                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {extensions.map(extension => (
-                    <ExtensionCard
-                      key={extension.name}
-                      logo={extension.logo}
-                      name={extension.name}
-                      description={extension.description}
-                      isActive={extension.isActive}
-                    />
-                  ))}
+                <div>
+                  {extensions.length ? (
+                    /* All extensions */
+                    <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {extensions.map(extension => (
+                        <ExtensionCard
+                          key={extension.name}
+                          logo={extension.logo}
+                          name={extension.name}
+                          description={extension.description}
+                          isActive={extension.isActive}
+                          toggleStatus={() => toggleExtensionStatus(extension.name)}
+                          removeExtension={() => removeExtension(extension.name)}
+                        />
+                      ))}
+                    </div>
+                    ) : (
+                      <EmptyState 
+                        title="No extensions"
+                        message="There are currently no extensions available."
+                      />
+                  )}
                 </div>
 
               ) : currentTab === "active" ? (
 
-                /* Active extensions */
-                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {activeExtensions.map(extension => (
-                    <ExtensionCard
-                      key={extension.name}
-                      logo={extension.logo}
-                      name={extension.name}
-                      description={extension.description}
-                      isActive={extension.isActive}
-                    />
-                  ))}
+                <div>
+                  {activeExtensions.length ? (
+                    /* Active extensions */
+                    <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {activeExtensions.map(extension => (
+                        <ExtensionCard
+                          key={extension.name}
+                          logo={extension.logo}
+                          name={extension.name}
+                          description={extension.description}
+                          isActive={extension.isActive}
+                          toggleStatus={() => toggleExtensionStatus(extension.name)}
+                          removeExtension={() => removeExtension(extension.name)}
+                        />
+                      ))}
+                    </div>
+                    ) : (
+                      <EmptyState 
+                        title="No active extensions"
+                        message="Enable an extension to see it appear here." 
+                      />
+                  )}
                 </div>
 
               ) : (
 
-                /* Inactive extensions */
-                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {inactiveExtensions.map(extension => (
-                    <ExtensionCard
-                      key={extension.name}
-                      logo={extension.logo}
-                      name={extension.name}
-                      description={extension.description}
-                      isActive={extension.isActive}
+                <div>
+                  {inactiveExtensions.length ? (
+                    /* Inactive extensions */
+                  <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {inactiveExtensions.map(extension => (
+                      <ExtensionCard
+                        key={extension.name}
+                        logo={extension.logo}
+                        name={extension.name}
+                        description={extension.description}
+                        isActive={extension.isActive}
+                        toggleStatus={() => toggleExtensionStatus(extension.name)}
+                        removeExtension={() => removeExtension(extension.name)}
+                      />
+                    ))}
+                  </div>
+                  ) : (
+                    <EmptyState 
+                      title="No inactive extensions" 
+                      message="All your extensions are currently active."
                     />
-                  ))}
+                  )}
                 </div>
               )
           }

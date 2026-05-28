@@ -1,12 +1,15 @@
 import clsx from "clsx";
 
 
-function ToggleButton({ isActive }: { isActive: boolean }) {
+function ToggleButton({ isActive, onButtonClick }: { isActive: boolean; onButtonClick: () => void; }) {
     return (
-        <button className={clsx(
-            'inline-block w-12 h-6 bg-neutral-300 dark:bg-neutral-600 rounded-2xl relative cursor-pointer',
-            isActive ? 'bg-red-700 hover:bg-red-400 dark:bg-red-400 dark:hover:bg-red-500' : 'hover:bg-neutral-400 dark:hover:bg-neutral-500'
-        )}>
+        <button 
+            className={clsx(
+                'inline-block w-12 h-6 bg-neutral-300 dark:bg-neutral-600 rounded-2xl relative cursor-pointer',
+                isActive ? 'bg-red-700 hover:bg-red-400 dark:bg-red-400 dark:hover:bg-red-500' : 'hover:bg-neutral-400 dark:hover:bg-neutral-500'
+            )}
+            onClick={onButtonClick}
+        >
             <span 
                 className={clsx(
                     'inline-block w-6 aspect-square rounded-full bg-white absolute top-0',

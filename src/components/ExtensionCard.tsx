@@ -7,7 +7,9 @@ function ExtensionCard({
     logo,
     name,
     description,
-    isActive
+    isActive,
+    toggleStatus,
+    removeExtension
 } : ExtensionCardProps
 ) {
     return (
@@ -28,8 +30,14 @@ function ExtensionCard({
                 </div>
 
                 <div className='flex items-center justify-between'>
-                    <RemoveButton text='Remove'  />
-                    <ToggleButton isActive={isActive}  />
+                    <RemoveButton 
+                        text='Remove' 
+                        onButtonClick={removeExtension}  
+                    />
+                    <ToggleButton 
+                        isActive={isActive} 
+                        onButtonClick={toggleStatus}  
+                    />
                 </div>
             </div>
         </article>
